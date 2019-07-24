@@ -22,13 +22,13 @@ except ImportError:
         OUT = 'OUTPUT BCM.GPIO17'
         BOARD = 'BOARD'
         def __init__(self):
-            print 'Fake gpio initialized'
+            print('Fake gpio initialized')
         def setmode(self, value):
-            print 'Set mode {0}.'.format(value)
+            print('Set mode {0}.'.format(value))
         def setup(self, io, mode):
-            print 'Set gpio {0}; Mode: {1};'.format(io, mode)
+            print('Set gpio {0}; Mode: {1};'.format(io, mode))
         def output(self, io, vlaue):
-            print 'Set gpio {0}; Value: {1};'.format(io, vlaue)
+            print('Set gpio {0}; Value: {1};'.format(io, vlaue))
     GPIO = FakeGPIO()
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -149,11 +149,11 @@ class RasPiApp(object):
         # end do_command
     
     def notify(self, notif, **params):
-        if self.connected :
-	    print "beginnin test"
-            print notif
-	    print params
-	    print "end test"
+        if self.connected:
+            print("beginnin test")
+            print(notif)
+            print(params)
+            print("end test")
             self.factory.notify(notif, params, device_id = self.info.id, device_key = self.info.key)
         else :
             self.notifs.append({'notification': notif, 'parameters': params})
